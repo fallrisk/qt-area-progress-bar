@@ -31,3 +31,6 @@ SOURCES += \
 HEADERS += \
         mainwindow.h \
     area_progress_bar.h
+
+DISTFILES += \
+    README.md

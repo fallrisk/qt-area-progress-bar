@@ -16,45 +16,36 @@ struct PixelHasher {
 
 class AreaProgressBar : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
     AreaProgressBar(QWidget *parent = 0);
+    ~AreaProgressBar();
 
-    // int maximum() const;
-    // int minimum() const;
+    int maximum() const;
+    int minimum() const;
 
-    // int value() const;
+    int value() const;
 
-    // virtual QString text() const;
-    // void setTextVisible(bool visible);
-    // bool isTextVisible() const;
-
-    // QSize minimumSizeHint() const override;
-    // QSize sizeHunt() const override;
-
-    // void resetFormat();
-    // void setFormat(const QString & format);
-    // QString format() const;
+    virtual QString text() const;
 
 public slots:
-// 	void reset();
-// 	void setMaximum(int maximum);
-// 	void setMinimum(int minimum);
-// 	void setOrientation(Qt::Orientation);
-// 	void setRange(int minimum, int maximum);
+    void reset();
+    void setMaximum(int maximum);
+    void setMinimum(int minimum);
+    void setRange(int minimum, int maximum);
     void setValue(int value);
 
-// signals:
-// 	void valueChanged(int value);
+signals:
+    void valueChanged(int value);
 
 protected:
-	void paintEvent(QPaintEvent *event) override;
+    void paintEvent(QPaintEvent *event) override;
     void resizeEvent(QResizeEvent *event) override;
     float minMaxScale(float x, float xMin, float xMax, float yMin, float yMax);
 
 private:
-	int _value;
+    int _value;
     int _minimum;
     int _maximum;
     uint _seed;
